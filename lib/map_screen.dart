@@ -8,6 +8,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:zavod_test/tools/location.dart';
 import 'package:http/http.dart' as http;
+import 'package:zavod_test/tools/sizes.dart';
 
 import 'env/env.dart';
 
@@ -31,6 +32,27 @@ class _MapScreenState extends State<MapScreen> {
       target: LatLng(37.43296265331129, -122.08832357078792),
       tilt: 59.440717697143555,
       zoom: 19.151926040649414);
+
+  // String getStaticMapImageUrl(double lat, double lng) {
+  //   const apiKey = Env.GOOGLE_API_KEY;
+  //   return 'https://maps.googleapis.com/maps/api/staticmap'
+  //       '?center=$lat,$lng'
+  //       '&zoom=17'
+  //       '&size=600x300'
+  //       '&maptype=roadmap'
+  //       '&markers=color:red%7C$lat,$lng'
+  //       '&key=$apiKey';
+  // }
+
+  String getStreetViewImageUrl(double lat, double lng) {
+    const apiKey = Env.GOOGLE_API_KEY;
+    return 'https://maps.googleapis.com/maps/api/streetview'
+        '?size=600x300'
+        '&location=$lat,$lng'
+        '&fov=80&heading=70&pitch=0'
+        '&key=$apiKey';
+  }
+
 
   void _generateRandomMarkers(double baseLat, double baseLng, LocationProvider locationProvider) {
     final Random random = Random();
@@ -142,6 +164,7 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
   showAddressSheet(String address,double width,LatLng tappedPoint,double currentLat, double currentLng, LocationProvider locationProvider){
+    final imageUrl = getStreetViewImageUrl(tappedPoint.latitude, tappedPoint.longitude);
     showModalBottomSheet(
         context: context,
         builder: (context){
@@ -161,6 +184,8 @@ class _MapScreenState extends State<MapScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
+                            Image.network(imageUrl),
+                            4.gap,
                             Container(
                               width: width,
                               padding: EdgeInsets.all(10),
