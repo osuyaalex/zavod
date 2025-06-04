@@ -6,6 +6,8 @@ import 'package:location/location.dart';
 class LocationProvider with ChangeNotifier{
   var locationData;  // Observable location data
   String? currentAddress;
+  List<Map<String, dynamic>>allLocations = [];
+
   Future<void> getLocation() async {
     Location location = Location();
     bool serviceEnabled;
@@ -72,4 +74,17 @@ class LocationProvider with ChangeNotifier{
 
     }
   }
+  getTappedLocations(double currentLat,double currentLong, LatLng tappedPoint, String address, String duration, String distance){
+    final Map<String, dynamic> tappedData = {
+      'currentLat': currentLat,
+      'currentLng': currentLong,
+      'tappedPoint': tappedPoint,
+      'address': address,
+      'duration': duration,
+      'distance': distance
+    };
+    allLocations.add(tappedData);
+    notifyListeners();
+  }
+
 }

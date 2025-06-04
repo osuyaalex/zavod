@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zavod_test/profile_pages/account.dart';
 import 'package:zavod_test/profile_pages/chat.dart';
+import 'package:zavod_test/profile_pages/hostory_page.dart';
 import 'package:zavod_test/tools/sizes.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -59,14 +60,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           ListTile(
             title: Text(
-              'Account',
+              'History',
               style: th.textTheme.bodySmall,
             ),
             leading: Icon(Icons.person_3_rounded),
             trailing: Icon(Icons.arrow_forward_ios, size: 5.pW),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return Account();
+                return HistoryPage();
               }));
             },
           ),

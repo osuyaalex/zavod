@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:zavod_test/map_screen.dart';
 import 'package:zavod_test/profile_screen.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key,});
 
   @override
   State<HomePage> createState() => _HomePageState();
