@@ -84,7 +84,7 @@ class _MapScreenState extends State<MapScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final locationProvider = Provider.of<LocationProvider>(context, listen: false);
       await locationProvider.getLocation();
-      await Future.delayed(Duration(seconds: 4));
+      await Future.delayed(Duration(seconds: 6));
       final latitude = locationProvider.locationData?.latitude;
       final longitude = locationProvider.locationData?.longitude;
       print('latttttt $latitude');
