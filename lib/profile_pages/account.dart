@@ -115,7 +115,7 @@ class _AccountState extends State<Account> {
                     }));
                   }
                 },
-                child: Text('Get Started',
+                child: Text('Continue',
                   style: TextStyle(
                       color: Colors.black
                   ),

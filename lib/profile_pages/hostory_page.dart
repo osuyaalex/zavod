@@ -47,7 +47,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       color: Colors.grey
                     ),
                   ),
-                  leading: Icon(Icons.person_3_rounded),
+                  leading: Icon(Icons.my_location_sharp),
                 );
                 }
             ):Center(

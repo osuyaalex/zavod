@@ -50,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               'Chat',
               style: th.textTheme.bodySmall,
             ),
-            leading: Icon(Icons.person_3_rounded),
+            leading: Icon(Icons.chat),
             trailing: Icon(Icons.arrow_forward_ios, size: 5.pW),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context){
@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               'History',
               style: th.textTheme.bodySmall,
             ),
-            leading: Icon(Icons.person_3_rounded),
+            leading: Icon(Icons.my_location_rounded),
             trailing: Icon(Icons.arrow_forward_ios, size: 5.pW),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context){
